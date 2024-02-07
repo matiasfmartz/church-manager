@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FaPeopleGroup, FaPersonShelter, FaPersonCircleCheck, FaHandHoldingHeart, FaChurch } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { FaPeopleGroup, FaPeopleRoof, FaPersonCircleCheck, FaHandHoldingHeart, FaChurch } from "react-icons/fa6";
 
 const SideBar = () => {
 
@@ -17,7 +18,7 @@ const SideBar = () => {
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
-        <div className="flex gap-x-4 items-center">
+        <Link className="flex gap-x-4 items-center" to="/">
           <img
             src="./src/assets/mda.png"
             className={`cursor-pointer duration-500 ${
@@ -31,57 +32,57 @@ const SideBar = () => {
           >
             Church Manager
           </h1>
-        </div>
+        </Link>
         <ul className="pt-6">
-            <li
+            <Link
               className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                mt-9"
+                mt-9" to="/"
             >
               <FaChurch className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Inicio
               </span>
-            </li>
+            </Link>
 
-            <li
+            <Link
               className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                mt-2"
+                mt-2" to="/miembros"
             >
               <FaPeopleGroup className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Miembros
               </span>
-            </li>
+            </Link>
 
-            <li
+            <Link
               className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                mt-2"
+                mt-2" to="/grupos"
             >
-              <FaPersonShelter className="size-6"/>
+              <FaPeopleRoof className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
-                Lideres
+                Grupos
               </span>
-            </li>
+            </Link>
 
-            <li
+            <Link
               className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                mt-2"
+                mt-2" to="/asistencias"
             >
               <FaPersonCircleCheck className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Asistencias
               </span>
-            </li>
+            </Link>
 
-            <li
+            <Link
               className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-                mt-2"
+                mt-2" to="/diezmos"
             >
               <FaHandHoldingHeart className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Diezmos
               </span>
-            </li>
+            </Link>
         </ul>
       </div>
     )
