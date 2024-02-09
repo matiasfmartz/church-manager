@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaPeopleGroup, FaPeopleRoof, FaPersonCircleCheck, FaHandHoldingHeart, FaChurch } from "react-icons/fa6";
+import { FaBookBible, FaPeopleGroup, FaPeopleRoof, FaPersonCircleCheck, FaHandHoldingHeart, FaChurch } from "react-icons/fa6";
 
 const SideBar = () => {
 
@@ -9,7 +9,7 @@ const SideBar = () => {
     return (
         <div
         className={` ${
-          open ? "w-72" : "w-20 "
+          open ? "w-60" : "w-20 "
         } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
       >
         <img
@@ -81,6 +81,16 @@ const SideBar = () => {
               <FaHandHoldingHeart className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Diezmos
+              </span>
+            </Link>
+
+            <Link
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
+                mt-9" to="/escuela-de-vida"
+            >
+              <FaBookBible className="size-6"/>
+              <span className={`${!open && "hidden"} origin-left duration-200`}>
+                Escuela de Vida
               </span>
             </Link>
         </ul>

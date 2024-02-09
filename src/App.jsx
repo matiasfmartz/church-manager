@@ -5,18 +5,20 @@ import Members from "./components/Members/Members"
 import Groups from "./components/Groups/Groups"
 import Assists from "./components/Assists/Assists"
 import Tithes from "./components/Tithes/Tithes"
+import School from "./components/School/School"
 
 const App = () => {
   return (
     <div className="flex">
       <SideBar />
-      <div className="h-screen flex-1 p-7 bg-slate-50">
+      <div className="flex-1 p-6 bg-slate-50 h-screen">
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Members />} path="/miembros" />
           <Route element={<Groups />} path="/grupos" />
           <Route element={<Assists />} path="/asistencias" />
           <Route element={<Tithes />} path="/diezmos" />
+          <Route element={<School />} path="/escuela-de-vida" />
         </Routes>
       </div>
     </div>
