@@ -10,12 +10,12 @@ const SideBar = () => {
         <div
         className={` ${
           open ? "w-60" : "w-20 "
-        } bg-blue-800 h-screen p-5  pt-8 relative duration-300`}
+        } bg-white h-screen p-5 border-neutral-300 pt-8 relative duration-300`}
       >
         <img
           src="./src/assets/control.png"
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
+           border-1 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
         <Link className="flex gap-x-4 items-center" to="/">
@@ -26,7 +26,7 @@ const SideBar = () => {
             }`}
           />
           <h1
-            className={`text-white origin-left font-medium text-xl duration-200 ${
+            className={`text-neutral-700 origin-left font-medium text-xl duration-200 ${
               !open && "scale-0"
             }`}
           >
@@ -35,7 +35,7 @@ const SideBar = () => {
         </Link>
         <ul className="pt-6">
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-slate-100 text-sm items-center gap-x-4 
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-9" to="/"
             >
               <FaChurch className="size-6"/>
@@ -45,7 +45,7 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-slate-100 text-sm items-center gap-x-4 
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-2" to="/miembros"
             >
               <FaPeopleGroup className="size-6"/>
@@ -55,7 +55,7 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-slate-100 text-sm items-center gap-x-4 
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-2" to="/grupos"
             >
               <FaPeopleRoof className="size-6"/>
@@ -65,7 +65,7 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-slate-100 text-sm items-center gap-x-4 
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-2" to="/asistencias"
             >
               <FaPersonCircleCheck className="size-6"/>
@@ -75,7 +75,7 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-slate-100 text-sm items-center gap-x-4 
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-2" to="/diezmos"
             >
               <FaHandHoldingHeart className="size-6"/>
@@ -85,7 +85,7 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-slate-100 text-sm items-center gap-x-4 
+              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-9" to="/escuela-de-vida"
             >
               <FaBookBible className="size-6"/>

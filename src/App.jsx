@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="flex">
       <SideBar />
-      <div className="flex-1 p-6 bg-slate-50 h-screen">
+      <div className="flex-1 p-6 bg-slate-100 h-screen">
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Members />} path="/miembros" />

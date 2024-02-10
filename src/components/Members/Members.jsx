@@ -1,15 +1,15 @@
-import { Routes, Route } from "react-router-dom"
-import AllMembers from "./All/AllMembers";
 import Tab from "../Shared/Tab";
+import Board from "../Shared/Board";
 
 const Members = () => {
 
     return (
         <>
-            <Tab />
-            {/* <Routes>
-
-            </Routes> */}
+            <div className="h-screen">
+                <h1 className="text-2xl font-semibold text-neutral-700">Miembros</h1>
+                <Tab />
+                <Board/>
+            </div>
         </>
     )
 }
