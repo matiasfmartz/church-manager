@@ -9,7 +9,7 @@ import School from "./components/School/School"
 
 const App = () => {
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <SideBar />
       <div className="flex-1 p-6 bg-slate-100 h-screen">
         <Routes>
