@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Tab from "./Tab";
-import Table from "../Shared/Table";
+import MembersTab from "./MembersTab";
 import AllMembers from "./All/AllMembers";
 import ActiveMembers from "./Active/ActiveMembers";
 import NewMembers from "./New/NewMembers";
@@ -12,7 +11,7 @@ const Members = () => {
         <>
             <div className="h-[13%]">
                 <h1 className="text-2xl font-semibold text-neutral-700">Miembros</h1>
-                <Tab />
+                <MembersTab />
             </div>
             <Routes>
                 <Route path="/" element={<AllMembers />}/>

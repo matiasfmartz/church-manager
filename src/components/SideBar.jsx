@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaBookBible, FaPeopleGroup, FaPeopleRoof, FaPersonCircleCheck, FaHandHoldingHeart, FaChurch } from "react-icons/fa6";
 
 const SideBar = () => {
 
     const [open, setOpen] = useState(true);
+    const location = useLocation();
 
     return (
         <div
@@ -35,9 +36,8 @@ const SideBar = () => {
         </Link>
         <ul className="pt-6">
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
-                mt-9" to="/"
-            >
+              className={`flex rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
+                mt-9 ${location.pathname === '/' ?  'bg-blue-600 text-white' : ''}`} to="/">
               <FaChurch className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Inicio
@@ -45,9 +45,8 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
-                mt-2" to="/miembros"
-            >
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
+                mt-2 ${location.pathname === '/miembros' || location.pathname.startsWith('/miembros') ?  'bg-blue-600 text-white' : ''}`} to="/miembros">
               <FaPeopleGroup className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Miembros
@@ -55,9 +54,8 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
-                mt-2" to="/grupos"
-            >
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
+                mt-2 ${location.pathname === '/grupos' || location.pathname.startsWith('/grupos') ? 'bg-blue-600 text-white' : ''}`} to="/grupos">
               <FaPeopleRoof className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Grupos
@@ -65,9 +63,8 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
-                mt-2" to="/asistencias"
-            >
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
+                mt-2 ${location.pathname === '/asistencias' || location.pathname.startsWith('/asistencias') ?  'bg-blue-600 text-white' : ''}`} to="/asistencias">
               <FaPersonCircleCheck className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Asistencias
@@ -75,9 +72,8 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
-                mt-2" to="/diezmos"
-            >
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
+                mt-2 ${location.pathname === '/diezmos' || location.pathname.startsWith('/diezmos') ?  'bg-blue-600 text-white' : ''}`} to="/diezmos">
               <FaHandHoldingHeart className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Diezmos
@@ -85,9 +81,8 @@ const SideBar = () => {
             </Link>
 
             <Link
-              className="flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
-                mt-9" to="/escuela-de-vida"
-            >
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
+                mt-9 ${location.pathname === '/escuela-de-vida' || location.pathname.startsWith('/escuela-de-vida') ?  'bg-blue-600 text-white' : ''}`} to="/escuela-de-vida">
               <FaBookBible className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Escuela de Vida

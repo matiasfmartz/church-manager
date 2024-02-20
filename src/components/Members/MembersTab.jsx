@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const Tab = () => {
+const MembersTab = () => {
 
     const location = useLocation();
 
@@ -33,4 +33,4 @@ const Tab = () => {
   )
 }
 
-export default Tab
+export default MembersTab
