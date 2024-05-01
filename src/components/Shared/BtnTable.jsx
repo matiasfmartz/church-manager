@@ -2,7 +2,7 @@ import React from 'react'
 
 const BtnTable = ({name1, name2, btn1, btn2, placeHolderSearch}) => {
   return (
-    <div className="h-[8%] flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 pb-4 bg-white">
+    <>
         <label for="table-search" className="sr-only">Search</label>
         <div className="relative">
             <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -33,7 +33,7 @@ const BtnTable = ({name1, name2, btn1, btn2, placeHolderSearch}) => {
             }
 
         </div>
-    </div>
+    </>
   )
 }
 
