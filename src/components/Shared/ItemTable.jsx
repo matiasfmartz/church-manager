@@ -2,14 +2,14 @@ import React from 'react'
 import { FaUser } from "react-icons/fa6";
 import { FaUserEdit, FaMinusCircle, FaPollH  } from "react-icons/fa";
 
-const ItemTable = ({i}) => {
+const ItemTable = ({member}) => {
 
     let srcImg = null;
 
   return (
-    <tr className="bg-white border-b border-gray-300 hover:bg-neutral-50" key={i}>
+    <tr className="bg-white border-b border-gray-300 hover:bg-neutral-50" key={member.id}>
         <td className="w-4 p-4">
-            {i + 1}
+            {member.id + 1}
         </td>
         <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
 
@@ -20,11 +20,11 @@ const ItemTable = ({i}) => {
             }
             
             <div className="ps-3">
-                <div className="text-base font-semibold  text-gray-500">Ivan Gonzalez</div>
+                <div className="text-base font-semibold  text-gray-500">{member.name} {member.last_name}</div>
             </div>
         </th>
         <td className="px-6 py-4">
-            Juan Alvarez
+            {member.guide_name} {member.guide_last_name}
         </td>
         <td className="px-6 py-4">
             <div className="flex items-center">

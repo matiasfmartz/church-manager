@@ -25,7 +25,7 @@ const Table = ({arr}) => {
                 </thead>
                 <tbody className="">
                         { arr.map((e, i)=> (
-                            <ItemTable i={i}/>
+                            <ItemTable member={e}/>
                         ))                           
                         }
                 </tbody>

@@ -71,14 +71,14 @@ const SideBar = () => {
               </span>
             </Link>
 
-            <Link
+            {/* <Link
               className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 
                 mt-2 ${location.pathname === '/diezmos' || location.pathname.startsWith('/diezmos') ?  'bg-blue-600 text-white' : ''}`} to="/diezmos">
               <FaHandHoldingHeart className="size-6"/>
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 Diezmos
               </span>
-            </Link>
+            </Link> */}
 
             <Link
               className={`flex  rounded-md p-2 cursor-pointer hover:bg-blue-600 hover:text-white text-neutral-500 text-sm items-center gap-x-4 

@@ -1,7 +1,25 @@
+import React, { useState, useEffect } from 'react';
+import { getAllMembers } from '../../../services/membersService';
 import BtnTable from "../../Shared/BtnTable";
 import Table from "../../Shared/Table";
 
 const AllMembers = () => {
+
+    const [members, setMembers] = useState([0]);
+
+    useEffect(() => {
+      const fetchMembers = async () => {
+        try {
+          const data = await getAllMembers();
+          setMembers(data);
+          console.log(data);
+        } catch (error) {
+          console.error('Error al obtener los miembros:', error);
+        }
+      };
+  
+      fetchMembers();
+    }, []);
 
     return (
         <>
@@ -10,7 +28,7 @@ const AllMembers = () => {
                     <BtnTable placeHolderSearch={"Buscar Miembros"}/>
                 </div>
                 <div className="overflow-auto h-[92%]">
-                    <Table arr={[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}/>
+                    <Table arr={members}/>
                 </div>
             </div>
         </>
