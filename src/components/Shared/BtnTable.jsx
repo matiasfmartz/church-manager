@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BtnTable = ({name1, name2, btn1, btn2, placeHolderSearch}) => {
+const BtnTable = ({name1, name2, btn1, btn2, onClick1, onClick2, placeHolderSearch}) => {
   return (
     <>
         <label for="table-search" className="sr-only">Search</label>
@@ -15,7 +15,7 @@ const BtnTable = ({name1, name2, btn1, btn2, placeHolderSearch}) => {
         <div>
             { 
                 btn2 ?
-                    <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" className="mx-3 inline-flex items-center text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600" type="button">
+                    <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" onClick={onClick2} className="mx-3 inline-flex items-center text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600" type="button">
                         {/* <span className="sr-only">Nuevo Miembro</span> */}
                         {name2}
                     </button>
@@ -24,7 +24,7 @@ const BtnTable = ({name1, name2, btn1, btn2, placeHolderSearch}) => {
             }
             {
                 btn1 ?
-                    <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" className="inline-flex items-center text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600" type="button">
+                    <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" onClick={onClick1} className="inline-flex items-center text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600" type="button">
                         {/* <span className="sr-only">Nuevo Miembro</span> */}
                         {name1}
                     </button>
