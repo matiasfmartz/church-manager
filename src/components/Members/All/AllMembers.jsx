@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BiErrorAlt } from "react-icons/bi";
 import { getAllMembers } from '../../../services/membersService';
 import BtnTable from "../../Shared/BtnTable";
@@ -12,11 +13,6 @@ const AllMembers = () => {
         error: null,
         loading: true
     });
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
 
     useEffect(() => {
       const fetchMembers = async () => {
@@ -35,9 +31,9 @@ const AllMembers = () => {
     return (
         <>
             <div className="h-[87%] relative shadow-xl sm:rounded-lg p-5 bg-white content-between">
-                <div className="h-[8%] flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 pb-4 bg-white">
-                    <BtnTable placeHolderSearch={"Buscar Miembros"} name1={"Nuevo Miembro"} btn1={true} name2={"prueba"} onClick1={openModal}/>
-                </div>
+                {/* <div className="h-[8%] flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 pb-4 bg-white">
+                    <BtnTable placeHolderSearch={"Buscar Miembros"} name1={"Nuevo Miembro"} btn1={true} onClick1={openModal} btn2={true} name2={"Agregar Miembros"} onClick2={handleNavigate}/>
+                </div> */}
                 <div className="overflow-auto h-[92%]">
                     {stateMembers.loading && <div>Loading...</div>}
                     {stateMembers.error && (
@@ -48,7 +44,6 @@ const AllMembers = () => {
                     {!stateMembers.loading && !stateMembers.error && <Table arr={stateMembers.data} />}
                 </div>
             </div>
-            <_NewMemberModal isOpen={isModalOpen} onClose={closeModal} />
         </>
     )
 }
