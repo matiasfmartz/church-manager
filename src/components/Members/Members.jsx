@@ -23,7 +23,7 @@ const Members = () => {
                 <Route path="inactivos" element={<InactiveMembers />}/>
                 <Route path="agregar-miembros" element={<AddMembers />}/>
             </Routes> */}
-            <h1 className="text-2xl font-semibold text-neutral-700">Miembros</h1>
+            <h1 className="mb-3 text-2xl font-semibold text-neutral-700">Miembros</h1>
             <Routes>
                 <Route path="/*" element={<MembersFilters />}/>
                 <Route path="agregar-miembros" element={<AddMembers />}/>

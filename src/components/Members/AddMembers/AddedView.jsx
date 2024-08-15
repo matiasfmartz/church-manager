@@ -3,9 +3,9 @@ import Table from '../../Shared/Table';
 
 const AddedView = ({title, btnActive}) => {
   return (
-        <div className="p-5 h-[45%]">
-            <h1 className="mb-2 font-bold text-gray-600">{title}</h1>
-            <div className="h-full">
+        <div className="p-4 h-full flex flex-col justify-between">
+            <div className="">
+                <h1 className="mb-2 font-bold text-gray-600">{title}</h1>
                 <Table arr={(1,1,1,1,1,1,1,1,1,1,1)} />
             </div>
             {

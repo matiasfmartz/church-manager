@@ -46,7 +46,7 @@ const AddMemberForm = () => {
     };
 
     return (
-        <div className="w-full p-5">
+        <div className="w-full p-4">
             <h2 className="text-xl font-semibold mb-4 text-gray-600">Agregar Nuevo Miembro</h2>
             <form onSubmit={handleSubmit}>
                 {/* Nombre y Apellido */}
@@ -202,9 +202,11 @@ const AddMemberForm = () => {
                     </div>
                 </div>
 
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Enviar
-                </button>
+                <div className='flex justify-end'>
+                    <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" className="inline-flex text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600" type="button">
+                        Enviar
+                    </button>
+                </div>
             </form>
         </div>
     );

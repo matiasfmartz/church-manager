@@ -18,7 +18,7 @@ const MembersTab = () => {
 
   return (    
     <div className="flex justify-between items-center">
-        <div className="mt-5 mb-4 border-b border-gray-300">
+        <div className="mb-3 border-b border-gray-300">
             <ul className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                 <li className="me-2">
                     <Link to="" className={`inline-flex items-center justify-center py-2 px-4 rounded-t-lg group ${location.pathname === '/miembros' ? 'text-blue-600 border-b-2 border-blue-600 active' : ''}`}>
