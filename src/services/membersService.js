@@ -1,12 +1,13 @@
-import axios from 'axios';
-import API_URL from '../config/config';
+import useService from "../hooks/useService";
 
 export const getAllMembers = async () => {
-  try {
-    const response = await axios.get(`${API_URL}/members`);
-    return response.data;
-  } catch (error) {
-    console.error('Error al obtener los miembros:', error);
-    throw error;
-  }
+  return await useService('get', '/members');
+};
+
+export const getCellOptions = async () => {
+  return await useService('get', '/members/cell-options');
+};
+
+export const getAreaOptions = async () => {
+  return await useService('get', '/members/area-options');
 };

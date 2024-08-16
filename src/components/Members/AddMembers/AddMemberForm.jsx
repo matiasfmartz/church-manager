@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getCellOptions, getAreaOptions } from '../../../services/membersService';
+import useFetch from '../../../hooks/useFetch';
 
 const AddMemberForm = () => {
     const [formData, setFormData] = useState({
@@ -14,6 +16,9 @@ const AddMemberForm = () => {
         cell: '',
         area: '',
     });
+
+    const cellOptions = useFetch(getCellOptions);
+    const areaOptions = useFetch(getAreaOptions);
 
     const handleChange = (e) => {
         setFormData({
@@ -184,7 +189,11 @@ const AddMemberForm = () => {
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3"
                         >
                             <option value="">Seleccione...</option>
-                            {/* Opciones aquí */}
+                            {   cellOptions.data.map((option) => (
+                                <option key={option.id} value={option.id}>
+                                    {option.name}
+                                </option>
+                            ))}
                         </select>
                     </div>
                     <div className="flex-1">
@@ -197,7 +206,11 @@ const AddMemberForm = () => {
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-3"
                         >
                             <option value="">Seleccione...</option>
-                            {/* Opciones aquí */}
+                            {   areaOptions.data.map((option) => (
+                                <option key={option.id} value={option.id}>
+                                    {option.name}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
