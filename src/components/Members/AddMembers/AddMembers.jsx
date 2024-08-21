@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '../../Shared/Table';
+import AddMemberForm from './AddMemberForm';
+import AddedView from './AddedView';
 
-const AddedView = ({ title, btnActive, list = [] }) => {
-    console.log(list);
+const AddMembers = () => {
+
+    const [membersList, setMembersList] = useState([]);  // Lista para almacenar miembro
+
+    useEffect(() => {
+        console.log(membersList);
+    }, [membersList]);
 
     return (
-        <div className="p-4 h-full flex flex-col justify-between">
-            <div>
-                <h1 className="mb-2 font-bold text-gray-600">{title}</h1>
-                {list.length > 0 ? (
-                    <Table arr={list} />
-                ) : (
-                    <p>No hay miembros en la lista</p>
-                )}
-            </div>
-            {btnActive && (
-                <div className="flex justify-end">
-                    <button
-                        id="dropdownActionButton"
-                        data-dropdown-toggle="dropdownAction"
-                        className="inline-flex text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600"
-                        type="button"
-                    >
-                        Agregar Miembros
-                    </button>
+        <div className='flex justify-between h-[95%]'>
+            <div className="flex flex-col justify-between w-[50%]">
+                <div className=" bg-white overflow-auto h-[65%] rounded-md">
+                    <AddMemberForm setList={setMembersList} list={membersList}/>
                 </div>
-            )}
+                <div className=" bg-white overflow-auto h-[33%] rounded-md">
+                    <AddedView title={"Agregados Recientemente"} />
+                </div>
+            </div>
+            <div className="flex-col flex justify-between bg-white h-[100%] w-[49%] rounded-md">
+                <div className="h-[33%]">
+                    <AddedView title={"Lista a añadir"} btnActive={true} list={membersList}/>
+                </div>
+                <div className="h-[65%]">
+                    <AddedView title={"Vista Previa"} btnActive={false}/>
+                </div>
+            </div>
         </div>
-    );
-};
+    )
+}
 
-export default AddedView;
+export default AddMembers;
