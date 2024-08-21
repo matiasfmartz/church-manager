@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import Select from 'react-select';
 import { getCellOptions, getAreaOptions } from '../../../services/membersService';
 import useFetch from '../../../hooks/useFetch';
 
-const AddMemberForm = () => {
+const AddMemberForm = ({setList, list}) => {
     const [formData, setFormData] = useState({
         name: '',
-        lastName: '',
-        birthDate: '',
-        startDate: '',
-        baptismDate: '',
+        last_name: '',
+        date_birth: '',
+        date_joining: '',
+        baptism: '',
         contact: '',
-        isSchoolOfLife: false,
-        isBibleInstitute: false,
-        comesFromAnotherChurch: '',
+        church_school: false,
+        bible_institute: false,
+        another_church: '',
         cell: '',
         area: '',
     });
@@ -27,6 +28,13 @@ const AddMemberForm = () => {
         });
     };
 
+    const handleSelectChange = (selectedOption, action) => {
+        setFormData({
+            ...formData,
+            [action.name]: selectedOption
+        });
+    };
+
     const handleCheckboxChange = (e) => {
         setFormData({
             ...formData,
@@ -35,14 +43,35 @@ const AddMemberForm = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
         try {
-            const response = await fetch('url_del_backend', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+            // const response = await fetch('url_del_backend', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(formData)
+            // });
+            e.preventDefault();
+        
+            // Añadir el miembro a la lista
+            setList([
+                ...list,
+                formData
+            ]);
+    
+            // Limpiar el formulario
+            setFormData({
+                name: '',
+                last_name: '',
+                date_birth: '',
+                date_joining: '',
+                baptism: '',
+                contact: '',
+                church_school: false,
+                bible_institute: false,
+                another_church: '',
+                cell: '',
+                area: '',
             });
             // Manejar la respuesta del backend según corresponda
         } catch (error) {
@@ -69,12 +98,12 @@ const AddMemberForm = () => {
                         />
                     </div>
                     <div className="flex-1">
-                        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Apellido</label>
+                        <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">Apellido</label>
                         <input
                             type="text"
-                            id="lastName"
-                            name="lastName"
-                            value={formData.lastName}
+                            id="last_name"
+                            name="last_name"
+                            value={formData.last_name}
                             onChange={handleChange}
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
@@ -85,24 +114,24 @@ const AddMemberForm = () => {
                 {/* Fecha de Nacimiento y Fecha de Ingreso */}
                 <div className="flex space-x-2 mb-4">
                     <div className="flex-1">
-                        <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
+                        <label htmlFor="date_birth" className="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
                         <input
                             type="date"
-                            id="birthDate"
-                            name="birthDate"
-                            value={formData.birthDate}
+                            id="date_birth"
+                            name="date_birth"
+                            value={formData.date_birth}
                             onChange={handleChange}
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
                         />
                     </div>
                     <div className="flex-1">
-                        <label htmlFor="startDate" className="block text-sm font-medium text-gray-700">Fecha de Ingreso</label>
+                        <label htmlFor="date_joining" className="block text-sm font-medium text-gray-700">Fecha de Ingreso</label>
                         <input
                             type="date"
-                            id="startDate"
-                            name="startDate"
-                            value={formData.startDate}
+                            id="date_joining"
+                            name="date_joining"
+                            value={formData.date_joining}
                             onChange={handleChange}
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
@@ -124,12 +153,12 @@ const AddMemberForm = () => {
                         />
                     </div>
                     <div className="flex-1">
-                        <label htmlFor="baptismDate" className="block text-sm font-medium text-gray-700">Fecha de Bautismo (Mes y Año)</label>
+                        <label htmlFor="baptism" className="block text-sm font-medium text-gray-700">Fecha de Bautismo (Mes y Año)</label>
                         <input
                             type="month"
-                            id="baptismDate"
-                            name="baptismDate"
-                            value={formData.baptismDate}
+                            id="baptism"
+                            name="baptism"
+                            value={formData.baptism}
                             onChange={handleChange}
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
@@ -139,12 +168,12 @@ const AddMemberForm = () => {
                 {/* Viene de Otra Iglesia, Escuela de Vida, Instituto Bíblico */}
                 <div className="flex space-x-2 mb-4">
                     <div className="flex-1">
-                        <label htmlFor="comesFromAnotherChurch" className="block text-sm font-medium text-gray-700">Viene de Otra Iglesia</label>
+                        <label htmlFor="another_church" className="block text-sm font-medium text-gray-700">Viene de Otra Iglesia</label>
                         <input
                             type="text"
-                            id="comesFromAnotherChurch"
-                            name="comesFromAnotherChurch"
-                            value={formData.comesFromAnotherChurch}
+                            id="another_church"
+                            name="another_church"
+                            value={formData.another_church}
                             onChange={handleChange}
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
@@ -154,24 +183,24 @@ const AddMemberForm = () => {
                             <div className="flex items-center">
                                 <input
                                     type="checkbox"
-                                    id="isSchoolOfLife"
-                                    name="isSchoolOfLife"
-                                    checked={formData.isSchoolOfLife}
+                                    id="church_school"
+                                    name="church_school"
+                                    checked={formData.church_school}
                                     onChange={handleCheckboxChange}
                                     className="mr-1"
                                 />
-                                <label htmlFor="isSchoolOfLife" className="text-sm font-medium text-gray-700">Escuela de Vida</label>
+                                <label htmlFor="church_school" className="text-sm font-medium text-gray-700">Escuela de Vida</label>
                             </div>
                             <div className="flex items-center">
                                 <input
                                     type="checkbox"
-                                    id="isBibleInstitute"
-                                    name="isBibleInstitute"
-                                    checked={formData.isBibleInstitute}
+                                    id="bible_institute"
+                                    name="bible_institute"
+                                    checked={formData.bible_institute}
                                     onChange={handleCheckboxChange}
                                     className="mr-1"
                                 />
-                                <label htmlFor="isBibleInstitute" className="text-sm font-medium text-gray-700">Instituto Bíblico</label>
+                                <label htmlFor="bible_institute" className="text-sm font-medium text-gray-700">Instituto Bíblico</label>
                             </div>
                         </div>
                     </div>
@@ -181,51 +210,31 @@ const AddMemberForm = () => {
                 <div className="flex space-x-2 mb-4">
                     <div className="flex-1">
                         <label htmlFor="cell" className="block text-sm font-medium text-gray-700">Celula</label>
-                        <select
-                            id="area"
-                            name="area"
-                            value={formData.area}
-                            onChange={handleChange}
-                            className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm sm:text-sm p-2 ${cellOptions.error ? 'text-rose-500 border-2 border-rose-500 bg-red-100' : 'focus:ring-indigo-500 focus:border-indigo-500'}`}
-                            disabled={cellOptions.error != null}
-                        >
-                            {cellOptions.error ? (
-                                <option value="">Error de servidor</option>
-                            ) : (
-                                <>
-                                    <option value="">Seleccione...</option>
-                                    {cellOptions.data.map((option) => (
-                                        <option key={option.id} value={option.id}>
-                                            {option.name}
-                                        </option>
-                                    ))}
-                                </>
-                            )}
-                        </select>
+                        <Select
+                            id="cell"
+                            name="cell"
+                            value={formData.cell}
+                            onChange={handleSelectChange}
+                            options={cellOptions.data.map(option => ({ value: option.id, label: option.name }))}
+                            isLoading={!cellOptions.data.length && !cellOptions.error}
+                            //isDisabled={cellOptions.error != null}
+                            placeholder="Seleccione una célula..."
+                            noOptionsMessage={() => cellOptions.error ? 'Error al cargar opciones' : 'Sin opciones disponibles'}
+                        />
                     </div>
                     <div className="flex-1">
                         <label htmlFor="area" className="block text-sm font-medium text-gray-700">Área</label>
-                        <select
+                        <Select
                             id="area"
                             name="area"
                             value={formData.area}
-                            onChange={handleChange}
-                            className={`mt-1 block w-full border-gray-300 rounded-md shadow-sm sm:text-sm p-2 ${areaOptions.error ? 'text-rose-500 border-2 border-rose-500 bg-red-100' : 'focus:ring-indigo-500 focus:border-indigo-500'}`}
-                            disabled={areaOptions.error != null}
-                        >
-                            {areaOptions.error ? (
-                                <option value="">Error de servidor</option>
-                            ) : (
-                                <>
-                                    <option value="">Seleccione...</option>
-                                    {areaOptions.data.map((option) => (
-                                        <option key={option.id} value={option.id}>
-                                            {option.name}
-                                        </option>
-                                    ))}
-                                </>
-                            )}
-                        </select>
+                            onChange={handleSelectChange}
+                            options={areaOptions.data.map(option => ({ value: option.id, label: option.name }))}
+                            isLoading={!areaOptions.data.length && !areaOptions.error}
+                            //isDisabled={areaOptions.error != null}
+                            placeholder="Seleccione un área..."
+                            noOptionsMessage={() => areaOptions.error ? 'Error al cargar opciones' : 'Sin opciones disponibles'}
+                        />
                     </div>
 
                 </div>
