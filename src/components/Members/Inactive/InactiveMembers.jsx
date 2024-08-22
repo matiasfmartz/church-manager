@@ -9,7 +9,7 @@ const InactiveMembers = () => {
             <BtnTable placeHolderSearch={"Buscar Miembros"}/>
         </div> */}
         <div className="overflow-auto h-[92%]">
-            <Table arr={[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}/>
+            <Table arr={[]}/>
         </div>
     </div>
   )
