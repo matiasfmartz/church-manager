@@ -2,17 +2,12 @@ import React from 'react';
 import Table from '../../Shared/Table';
 
 const AddedView = ({ title, btnActive, list = [] }) => {
-    console.log(list);
-
+    
     return (
         <div className="p-4 h-full flex flex-col justify-between">
             <div>
                 <h1 className="mb-2 font-bold text-gray-600">{title}</h1>
-                {list.length > 0 ? (
-                    <Table arr={list} />
-                ) : (
-                    <p>No hay miembros en la lista</p>
-                )}
+                <Table arr={list} />
             </div>
             {btnActive && (
                 <div className="flex justify-end">

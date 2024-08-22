@@ -2,8 +2,6 @@ import ItemTable from "./ItemTable";
 
 const Table = ({arr}) => {
 
-    console.log(arr);
-
     return (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
             <thead className="h-full text-xs text-gray-400 uppercase bg-stone-100">
