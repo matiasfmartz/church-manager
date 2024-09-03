@@ -5,6 +5,7 @@ import { getAllMembers } from '../../../services/membersService';
 import BtnTable from "../../Shared/BtnTable";
 import Table from "../../Shared/Table";
 import _NewMemberModal from '../../Shared/_NewMemberModal';
+import { getAllProcessMembers } from '../../../logic/memberLogic';
 
 const AllMembers = () => {
 
@@ -18,6 +19,7 @@ const AllMembers = () => {
       const fetchMembers = async () => {
         try {
           const data = await getAllMembers();
+        console.log(data);
           setStateMembers({ data: data, error: null, loading: false });
         } catch (error) {
             setStateMembers({ data: [], error: `Server error ${error.name}. Message: "${error.message}"`, loading: false });

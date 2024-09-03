@@ -1,26 +1,94 @@
 import React from 'react';
-import Table from '../../Shared/Table';
+import AddedViewTable from './AddedViewTable';
 
-const AddedView = ({ title, btnActive, list = [] }) => {
+const AddedView = ({ title, list = [] }) => {
+
+    const listProv = [
+        {
+            name: 'Matias',
+            last_name: 'Martinez',
+            date_birth: '1998-08-02',
+            date_joining: '1998-08-02',
+            baptism: '',
+            contact: '',
+            church_school: false,
+            bible_institute: false,
+            another_church: '',
+            cell: '',
+            area: '',
+        },
+        {
+            name: 'Matias',
+            last_name: 'Martinez',
+            date_birth: '1998-08-02',
+            date_joining: '1998-08-02',
+            baptism: '',
+            contact: '',
+            church_school: false,
+            bible_institute: false,
+            another_church: '',
+            cell: '',
+            area: '',
+        },
+        {
+            name: 'Matias',
+            last_name: 'Martinez',
+            date_birth: '1998-08-02',
+            date_joining: '1998-08-02',
+            baptism: '',
+            contact: '',
+            church_school: false,
+            bible_institute: false,
+            another_church: '',
+            cell: '',
+            area: '',
+        },
+        {
+            name: 'Matias',
+            last_name: 'Martinez',
+            date_birth: '1998-08-02',
+            date_joining: '1998-08-02',
+            baptism: '',
+            contact: '',
+            church_school: false,
+            bible_institute: false,
+            another_church: '',
+            cell: '',
+            area: '',
+        },
+        {
+            name: 'Matias',
+            last_name: 'Martinez',
+            date_birth: '1998-08-02',
+            date_joining: '1998-08-02',
+            baptism: '',
+            contact: '',
+            church_school: false,
+            bible_institute: false,
+            another_church: '',
+            cell: '',
+            area: '',
+        },
+    ]
     
     return (
         <div className="p-4 h-full flex flex-col justify-between">
-            <div>
+            <div className='h-[85%]'>
                 <h1 className="mb-2 font-bold text-gray-600">{title}</h1>
-                <Table arr={list} />
-            </div>
-            {btnActive && (
-                <div className="flex justify-end">
-                    <button
-                        id="dropdownActionButton"
-                        data-dropdown-toggle="dropdownAction"
-                        className="inline-flex text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600"
-                        type="button"
-                    >
-                        Agregar Miembros
-                    </button>
+                <div className='overflow-auto h-full'>
+                    <AddedViewTable arr={listProv} />
                 </div>
-            )}
+            </div>
+            <div className="h-[15%] flex justify-end">
+                <button
+                    id="dropdownActionButton"
+                    data-dropdown-toggle="dropdownAction"
+                    className="inline-flex text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600"
+                    type="button"
+                >
+                    Agregar Miembros
+                </button>
+            </div>
         </div>
     );
 };

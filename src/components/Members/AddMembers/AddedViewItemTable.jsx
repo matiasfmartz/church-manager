@@ -2,13 +2,13 @@ import React from 'react'
 import { FaUser } from "react-icons/fa6";
 import { FaUserEdit, FaMinusCircle, FaPollH  } from "react-icons/fa";
 
-const ItemTable = ({member, key}) => {
+const AddedViewItemTable = ({member, key}) => {
 
     const calculateAge = (birthDate) => {
         return new Date().getFullYear() - new Date(birthDate).getFullYear();
     };
 
-    const age = member.date_birth == null ? null : calculateAge(member.date_birth);
+    const age = calculateAge(member.date_birth);
 
     let srcImg = null;
 
@@ -39,18 +39,13 @@ const ItemTable = ({member, key}) => {
             {member.date_joining}
         </td>
         <td className="px-3 py-2">
-            {member.name_guide} {member.last_name_guide}
+            {member.cell.label}
         </td>
         <td className="px-3 py-2">
-            {member.area_name}
-        </td>
-        <td className="px-3 py-2">
-            <div className="flex items-center">
-                <div className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>Activo
-            </div>
+            {member.area.label}
         </td>
     </tr>
   )
 }
 
-export default ItemTable
+export default AddedViewItemTable

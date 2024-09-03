@@ -26,7 +26,7 @@ const AddMembers = () => {
                     <AddedView title={"Lista a añadir"} btnActive={true} list={membersList}/>
                 </div>
                 <div className="h-[65%]">
-                    <AddedView title={"Vista Previa"} btnActive={false}/>
+                    {/* <AddedView title={"Vista Previa"} btnActive={false}/> */}
                 </div>
             </div>
         </div>
