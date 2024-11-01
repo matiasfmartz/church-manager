@@ -18,7 +18,7 @@ const AddMembers = () => {
                     <AddMemberForm setList={setMembersList} list={membersList}/>
                 </div>
                 <div className=" bg-white overflow-auto h-[33%] rounded-md">
-                    <AddedView title={"Agregados Recientemente"} />
+                    <AddedView title={"Agregados Recientemente"} /> {/* para agregados recientemente, hacer una llamada a la base filtrando por fecha de agregacion*/}
                 </div>
             </div>
             <div className="flex-col flex justify-between bg-white h-[100%] w-[49%] rounded-md">

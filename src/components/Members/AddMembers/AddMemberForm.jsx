@@ -43,40 +43,28 @@ const AddMemberForm = ({setList, list}) => {
     };
 
     const handleSubmit = async (e) => {
-        try {
-            // const response = await fetch('url_del_backend', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(formData)
-            // });
-            e.preventDefault();
-        
-            // Añadir el miembro a la lista
-            setList([
-                ...list,
-                formData
-            ]);
+        e.preventDefault();
     
-            // Limpiar el formulario
-            setFormData({
-                name: '',
-                last_name: '',
-                date_birth: '',
-                date_joining: '',
-                baptism: '',
-                contact: '',
-                church_school: false,
-                bible_institute: false,
-                another_church: '',
-                cell: '',
-                area: '',
-            });
-            // Manejar la respuesta del backend según corresponda
-        } catch (error) {
-            console.error('Error al enviar formulario:', error);
-        }
+        // Añadir el miembro a la lista
+        setList([
+            ...list,
+            formData
+        ]);
+
+        // Limpiar el formulario
+        setFormData({
+            name: '',
+            last_name: '',
+            date_birth: '',
+            date_joining: '',
+            baptism: '',
+            contact: '',
+            church_school: false,
+            bible_institute: false,
+            another_church: '',
+            cell: '',
+            area: '',
+        });
     };
 
     return (

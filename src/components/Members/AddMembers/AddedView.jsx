@@ -78,16 +78,16 @@ const AddedView = ({ title, list = [] }) => {
                 <div className='overflow-auto h-full'>
                     <AddedViewTable arr={listProv} />
                 </div>
-            </div>
-            <div className="h-[15%] flex justify-end">
-                <button
-                    id="dropdownActionButton"
-                    data-dropdown-toggle="dropdownAction"
-                    className="inline-flex text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600"
-                    type="button"
-                >
-                    Agregar Miembros
-                </button>
+                <div className="flex justify-end">
+                    <button
+                        id="dropdownActionButton"
+                        data-dropdown-toggle="dropdownAction"
+                        className="inline-flex text-white bg-blue-600 font-medium rounded-lg text-sm px-3 py-2.5 border border-blue-600 hover:bg-white hover:text-blue-600"
+                        type="button"
+                    >
+                        Agregar Miembros
+                    </button>
+                </div>
             </div>
         </div>
     );
