@@ -19,7 +19,6 @@ const AllMembers = () => {
       const fetchMembers = async () => {
         try {
           const data = await getAllMembers();
-        console.log(data);
           setStateMembers({ data: data, error: null, loading: false });
         } catch (error) {
             setStateMembers({ data: [], error: `Server error ${error.name}. Message: "${error.message}"`, loading: false });

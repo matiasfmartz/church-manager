@@ -10,7 +10,6 @@ const AddMembers = () => {
     const [membersList, setMembersList] = useState([]);  // Lista para almacenar miembro
 
     useEffect(() => {
-        console.log(membersList);
     }, [membersList]);
 
     const [recentlyAdded, setRecentlyAdded] = useState([]); // Lista de miembros recientemente agregados
@@ -19,7 +18,6 @@ const AddMembers = () => {
     const updateRecentlyAdded = async () => {
         try {
             const data = await getLastAddedMembers();
-            console.log(data);
             setRecentlyAdded(data);
         } catch (error) {
             console.error('Error fetching recently added members:', error);

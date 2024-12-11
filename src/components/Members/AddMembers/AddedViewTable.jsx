@@ -16,28 +16,8 @@ const AddedViewTable = ({ arr, selectedIds, setSelectedIds }) => {
     };
 
     const calculateAge = (birthDate) => {
-        let birth;
-    
-        // Verifica si birthDate es una cadena (como un ISO 8601 string)
-        if (typeof birthDate === "string") {
-            birth = new Date(birthDate); // Convierte la cadena a un objeto Date
-        } else {
-            birth = birthDate; // Asume que ya es un objeto Date
-        }
-    
-        const today = new Date();
-        let age = today.getFullYear() - birth.getFullYear();
-    
-        // Resta 1 a la edad si el cumpleaños aún no ha ocurrido este año
-        if (
-            today.getMonth() < birth.getMonth() || 
-            (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())
-        ) {
-            age--;
-        }
-    
-        return age;
-    };    
+        return new Date().getFullYear() - new Date(birthDate).getFullYear();
+    };
 
     return (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -58,24 +38,28 @@ const AddedViewTable = ({ arr, selectedIds, setSelectedIds }) => {
                         <tr
                             key={i}
                             onClick={() => handleSelect(i)}
-                            className={`cursor-pointer ${selectedIds.includes(i) ? 'bg-blue-100' : ''} border-b border-gray-300 hover:bg-blue-100`}
+                            className={`cursor-pointer ${selectedIds.includes(i) ? 'bg-blue-100' : ''} border-b border-gray-300 hover:bg-blue-100 text-sm whitespace-nowrap`}
                         >
                             <td className="w-4 p-">{i + 1}</td>
-                            <th scope="row" className="flex items-center px-3 py-2 text-gray-900 whitespace-nowrap dark:text-white">
-                                <FaUser className="text-slate-500 size-5 mx-1" />
-                                <div className="ps-3">
-                                    <div className="text-base font-semibold text-gray-500">
-                                        {e.name} {e.last_name}
-                                    </div>
+                            <td scope="row" className="items-center flex px-3 py-2 text-gray-900 dark:text-white">
+                                <FaUser className="text-slate-500 size-3 mx-1 " />
+                                <div className="font-semibold text-gray-500">
+                                    {e.name} {e.last_name}
                                 </div>
-                            </th>
+                            </td>
                             <td className="px-3 py-2">{calculateAge(e.date_birth)}</td>
                             <td className="px-3 py-2">{e.contact}</td>
-                            <td className="px-3 py-2">{e.date_joining}</td>
+                            <td className="px-3 py-2">
+                            {
+                                e.date_joining
+                                ? new Intl.DateTimeFormat('es-AR', { dateStyle: 'medium' }).format(new Date(e.date_joining))
+                                : ""
+                            }
+                            </td>
                             <td className="px-3 py-2">
                                 {e.cell?.label ? e.cell.label : e.name_guide + " " + e.last_name_guide} {/* Si cell.label existe y tiene valor, lo muestra; si no, muestra el nombre y apellido del guía */}
                             </td>
-                            <td className="px-3 py-2">
+                            <td className=" px-3 py-2">
                                 {e.area?.label ? e.area.label : e.area_name} {/* Si area.label existe y tiene valor, lo muestra; si no, muestra el nombre del área */}
                             </td>
                         </tr>
