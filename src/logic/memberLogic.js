@@ -18,8 +18,14 @@ export const getAllProcessMembers = async () => {
     }
 }
 
-function processMembers(data){
-    data.forEach(e => {
-        e.id_area
-    });
+// memberLogic.js
+export const processMembers = (data) => {
+  return data.map(member => {
+      // Modifica solo los valores 'value' de cell y area
+      return {
+          ...member,
+          area: member.area.value,  // Extrae solo el valor de 'value' de 'area'
+          cell: member.cell.value   // Extrae solo el valor de 'value' de 'cell'
+      };
+  });
 }

@@ -137,13 +137,14 @@ const AddMemberForm = ({setList, list}) => {
                             name="contact"
                             value={formData.contact}
                             onChange={handleChange}
+                            maxLength="15"
                             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
                     </div>
                     <div className="flex-1">
                         <label htmlFor="baptism" className="block text-sm font-medium text-gray-700">Fecha de Bautismo (Mes y Año)</label>
                         <input
-                            type="month"
+                            type="date"
                             id="baptism"
                             name="baptism"
                             value={formData.baptism}

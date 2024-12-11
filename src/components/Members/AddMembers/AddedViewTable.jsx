@@ -1,25 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaUser } from "react-icons/fa6";
 
-const AddedViewTable = ({ arr }) => {
-    const [selectedId, setSelectedId] = useState([]);
-
+const AddedViewTable = ({ arr, selectedIds, setSelectedIds }) => {
     const handleSelect = (id) => {
-        const index = selectedId.indexOf(id);
+        const index = selectedIds.indexOf(id);
         if (index === -1) {
             // Agregar el ID si no está seleccionado
-            setSelectedId([...selectedId, id]);
+            setSelectedIds([...selectedIds, id]);
         } else {
             // Quitar el ID si ya está seleccionado
-            const newSelectedId = [...selectedId];
-            newSelectedId.splice(index, 1);
-            setSelectedId(newSelectedId);
+            const newSelectedIds = [...selectedIds];
+            newSelectedIds.splice(index, 1);
+            setSelectedIds(newSelectedIds);
         }
     };
 
     const calculateAge = (birthDate) => {
-        return new Date().getFullYear() - new Date(birthDate).getFullYear();
-    };
+        let birth;
+    
+        // Verifica si birthDate es una cadena (como un ISO 8601 string)
+        if (typeof birthDate === "string") {
+            birth = new Date(birthDate); // Convierte la cadena a un objeto Date
+        } else {
+            birth = birthDate; // Asume que ya es un objeto Date
+        }
+    
+        const today = new Date();
+        let age = today.getFullYear() - birth.getFullYear();
+    
+        // Resta 1 a la edad si el cumpleaños aún no ha ocurrido este año
+        if (
+            today.getMonth() < birth.getMonth() || 
+            (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())
+        ) {
+            age--;
+        }
+    
+        return age;
+    };    
 
     return (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -30,8 +48,8 @@ const AddedViewTable = ({ arr }) => {
                     <th scope="col" className="px-3 py-3">Edad</th>
                     <th scope="col" className="px-3 py-3">Contacto</th>
                     <th scope="col" className="px-3 py-3">Ingreso</th>
-                    <th scope="col" className="px-3 py-3">Guia</th>
-                    <th scope="col" className="px-3 py-3">Area</th>
+                    <th scope="col" className="px-3 py-3">Guía</th>
+                    <th scope="col" className="px-3 py-3">Área</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +58,9 @@ const AddedViewTable = ({ arr }) => {
                         <tr
                             key={i}
                             onClick={() => handleSelect(i)}
-                            className={`cursor-pointer ${selectedId.includes(i) ? 'bg-blue-100' : ''} border-b border-gray-300 hover:bg-blue-100`}
+                            className={`cursor-pointer ${selectedIds.includes(i) ? 'bg-blue-100' : ''} border-b border-gray-300 hover:bg-blue-100`}
                         >
-                            <td className="w-4 p-">{e.id ? e.id + 1 : "-"}</td>
+                            <td className="w-4 p-">{i + 1}</td>
                             <th scope="row" className="flex items-center px-3 py-2 text-gray-900 whitespace-nowrap dark:text-white">
                                 <FaUser className="text-slate-500 size-5 mx-1" />
                                 <div className="ps-3">
@@ -54,13 +72,17 @@ const AddedViewTable = ({ arr }) => {
                             <td className="px-3 py-2">{calculateAge(e.date_birth)}</td>
                             <td className="px-3 py-2">{e.contact}</td>
                             <td className="px-3 py-2">{e.date_joining}</td>
-                            <td className="px-3 py-2">{e.cell.label}</td>
-                            <td className="px-3 py-2">{e.area.label}</td>
+                            <td className="px-3 py-2">
+                                {e.cell?.label ? e.cell.label : e.name_guide + " " + e.last_name_guide} {/* Si cell.label existe y tiene valor, lo muestra; si no, muestra el nombre y apellido del guía */}
+                            </td>
+                            <td className="px-3 py-2">
+                                {e.area?.label ? e.area.label : e.area_name} {/* Si area.label existe y tiene valor, lo muestra; si no, muestra el nombre del área */}
+                            </td>
                         </tr>
                     ))
                 ) : (
                     <tr>
-                        <td colSpan="8" className="text-center p-4 text-gray-400">No hay datos</td>
+                        <td colSpan="7" className="text-center p-4 text-gray-400">No hay datos</td>
                     </tr>
                 )}
             </tbody>
