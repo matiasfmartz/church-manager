@@ -81,7 +81,7 @@ const AddMemberForm = ({setList, list}) => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
                         />
                     </div>
@@ -93,7 +93,7 @@ const AddMemberForm = ({setList, list}) => {
                             name="last_name"
                             value={formData.last_name}
                             onChange={handleChange}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
                         />
                     </div>
@@ -109,7 +109,7 @@ const AddMemberForm = ({setList, list}) => {
                             name="date_birth"
                             value={formData.date_birth}
                             onChange={handleChange}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
                         />
                     </div>
@@ -121,7 +121,7 @@ const AddMemberForm = ({setList, list}) => {
                             name="date_joining"
                             value={formData.date_joining}
                             onChange={handleChange}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                             required
                         />
                     </div>
@@ -138,7 +138,7 @@ const AddMemberForm = ({setList, list}) => {
                             value={formData.contact}
                             onChange={handleChange}
                             maxLength="15"
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
                     </div>
                     <div className="flex-1">
@@ -149,7 +149,7 @@ const AddMemberForm = ({setList, list}) => {
                             name="baptism"
                             value={formData.baptism}
                             onChange={handleChange}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
                     </div>
                 </div>
@@ -164,7 +164,7 @@ const AddMemberForm = ({setList, list}) => {
                             name="another_church"
                             value={formData.another_church}
                             onChange={handleChange}
-                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
+                            className="mt-1 block w-full border-gray-300 rounded-md shadow-xs focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2"
                         />
                     </div>
                     <div className="flex-1">
