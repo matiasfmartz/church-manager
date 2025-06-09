@@ -1,6 +1,6 @@
 import React from 'react'
-import BtnTable from '../../Shared/BtnTable'
-import Table from '../../Shared/Table'
+import BtnTable from '@/components/Shared/BtnTable'
+import Table from '@/components/Shared/Table'
 
 const GDI = () => {
   return (

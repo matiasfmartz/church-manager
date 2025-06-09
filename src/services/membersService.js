@@ -21,6 +21,6 @@ export const setMembers = async (members) => {
   return await useService('post', '/members/list', processMembers(members));
 };
 
-export const setMember = async () => {
+export const setMember = async (member) => {
   return await useService('post', '/members', member);
 };

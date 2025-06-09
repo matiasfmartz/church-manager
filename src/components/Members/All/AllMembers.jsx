@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiErrorAlt } from "react-icons/bi";
-import { getAllMembers } from '../../../services/membersService';
+import { getAllMembers } from '@/services/membersService';
 import BtnTable from "../../Shared/BtnTable";
 import Table from "../../Shared/Table";
-import _NewMemberModal from '../../Shared/_NewMemberModal';
-import { getAllProcessMembers } from '../../../logic/memberLogic';
+import _NewMemberModal from '@/components/Shared/_NewMemberModal';
+import { getAllProcessMembers } from '@/logic/memberLogic';
 
 const AllMembers = () => {
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaUser } from "react-icons/fa6";
 import { FaUserEdit, FaMinusCircle, FaPollH  } from "react-icons/fa";
+import Table from '@/components/Shared/Table';
+import BtnTable from '@/components/Shared/BtnTable';
 
 const AddedViewItemTable = ({member, key}) => {
 

@@ -1,6 +1,6 @@
 import ItemTable from "./ItemTable";
 
-const Table = ({arr}) => {
+const Table = ({arr = []}) => {
 
     return (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -28,7 +28,7 @@ const Table = ({arr}) => {
                         Area
                     </th>
                     <th scope="col" className="px-3 py-3">
-                        Estado
+                        Acciones
                     </th>
                 </tr>
             </thead>

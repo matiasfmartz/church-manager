@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../../Shared/Table'
+import Table from '@/components/Shared/Table'
 
 const NewMembers = () => {
   return (

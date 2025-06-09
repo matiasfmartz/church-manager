@@ -1,6 +1,6 @@
 import React from 'react'
 import BtnTable from '../../Shared/BtnTable'
-import Table from '../../Shared/Table'
+import Table from '@/components/Shared/Table'
 
 const InactiveMembers = () => {
   return (

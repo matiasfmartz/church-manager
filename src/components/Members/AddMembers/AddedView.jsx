@@ -1,89 +1,10 @@
 import React, { useState } from 'react';
 import AddedViewTable from './AddedViewTable';
-import { setMembers } from '../../../services/membersService';
+import { setMembers } from '@/services/membersService';
+import Table from '@/components/Shared/Table';
+import BtnTable from '@/components/Shared/BtnTable';
 
-const AddedView = ({ title, list = [] , setList}) => {
-    const [listProv, setListProv] = useState([
-        {
-            name: 'Matias',
-            last_name: 'Martinez',
-            date_birth: '1998-08-02',
-            date_joining: '1998-08-02',
-            baptism: '',
-            contact: '',
-            church_school: false,
-            bible_institute: false,
-            another_church: '',
-            cell: { label: 'Guía 1' },
-            area: { label: 'Área 1' },
-        },
-        {
-            name: 'Matias',
-            last_name: 'Martinez',
-            date_birth: '1998-08-02',
-            date_joining: '1998-08-02',
-            baptism: '',
-            contact: '',
-            church_school: false,
-            bible_institute: false,
-            another_church: '',
-            cell: { label: 'Guía 2' },
-            area: { label: 'Área 2' },
-        },
-        {
-            name: 'Matias',
-            last_name: 'Martinez',
-            date_birth: '1998-08-02',
-            date_joining: '1998-08-02',
-            baptism: '',
-            contact: '',
-            church_school: false,
-            bible_institute: false,
-            another_church: '',
-            cell: { label: 'Guía 1' },
-            area: { label: 'Área 1' },
-        },
-        {
-            name: 'Matias',
-            last_name: 'Martinez',
-            date_birth: '1998-08-02',
-            date_joining: '1998-08-02',
-            baptism: '',
-            contact: '',
-            church_school: false,
-            bible_institute: false,
-            another_church: '',
-            cell: { label: 'Guía 2' },
-            area: { label: 'Área 2' },
-        },
-        {
-            name: 'Matias',
-            last_name: 'Martinez',
-            date_birth: '1998-08-02',
-            date_joining: '1998-08-02',
-            baptism: '',
-            contact: '',
-            church_school: false,
-            bible_institute: false,
-            another_church: '',
-            cell: { label: 'Guía 1' },
-            area: { label: 'Área 1' },
-        },
-        {
-            name: 'Matias',
-            last_name: 'Martinez',
-            date_birth: '1998-08-02',
-            date_joining: '1998-08-02',
-            baptism: '',
-            contact: '',
-            church_school: false,
-            bible_institute: false,
-            another_church: '',
-            cell: { label: 'Guía 2' },
-            area: { label: 'Área 2' },
-        }
-    ]);
-
+const AddedView = ({ title, list = [], setList, onMembersAdded }) => {
     const [selectedIds, setSelectedIds] = useState([]);
 
     const handleRemoveSelected = () => {
@@ -97,6 +18,7 @@ const AddedView = ({ title, list = [] , setList}) => {
             await setMembers(list);
             setList([]); // Vacía la lista
             setSelectedIds([]); // Limpia la selección
+            if (onMembersAdded) onMembersAdded();
             alert('Miembros agregados correctamente');
         } catch (error) {
             console.error('Error al agregar miembros:', error);
